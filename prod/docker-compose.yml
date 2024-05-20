@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  api:
+    container_name: api
+    image: 434089281886.dkr.ecr.us-east-1.amazonaws.com/api
+    ports:
+      - "80:5000"  # Mapeamento da porta do contêiner para a porta do host (altere conforme necessário)
