@@ -1,0 +1,61 @@
+name: Terraform CI/CD
+
+on:
+  push:
+    branches:
+      - main
+      - 'stage/*'
+      - 'prod/*'
+
+jobs:
+  terraform-stage:
+    name: Terraform Plan and Apply for Stage
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/heads/stage/')
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.0.0
+
+      - name: Terraform Init
+        run: terraform init
+        working-directory: ./stage
+
+      - name: Terraform Plan
+        run: terraform plan -out=tfplan
+        working-directory: ./stage
+
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main'
+        run: terraform apply -auto-approve tfplan
+        working-directory: ./stage
+
+  terraform-prod:
+    name: Terraform Plan and Apply for Prod
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/heads/prod/')
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.0.0
+
+      - name: Terraform Init
+        run: terraform init
+        working-directory: ./prod
+
+      - name: Terraform Plan
+        run: terraform plan -out=tfplan
+        working-directory: ./prod
+
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main'
+        run: terraform apply -auto-approve tfplan
+        working-directory: ./prod
