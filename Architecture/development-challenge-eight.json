@@ -1,0 +1,57 @@
+{
+	"Name": "development-challenge-eight",
+	"Total Cost": {
+		"monthly": "1.70",
+		"upfront": "61.32",
+		"12 months": "81.72"
+	},
+	"Metadata": {
+		"Currency": "USD",
+		"Locale": "en_US",
+		"Created On": "5/22/2024",
+		"Legal Disclaimer": "AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services.",
+		"Share Url": "https://calculator.aws/#/estimate?id=d47ca0940efbd96c55d1175a809c19df6e73a587"
+	},
+	"Groups": {
+		"Services": [
+			{
+				"Service Name": "Amazon Elastic Container Registry",
+				"Description": "ECR Provider for API",
+				"Region": "US East (N. Virginia)",
+				"Status": "",
+				"Service Cost": {
+					"monthly": "0.10",
+					"upfront": "0.00",
+					"12 months": "1.20"
+				},
+				"Properties": {
+					"DT Inbound: Internet": "0 TB per month",
+					"DT Outbound: Amazon CloudFront": "0 TB per month",
+					"Amount of data stored": "1 GB per month"
+				}
+			},
+			{
+				"Service Name": "Amazon EC2 ",
+				"Region": "US East (N. Virginia)",
+				"Status": "",
+				"Service Cost": {
+					"monthly": "1.60",
+					"upfront": "61.32",
+					"12 months": "80.52"
+				},
+				"Properties": {
+					"Tenancy": "Shared Instances",
+					"Operating system": "Linux",
+					"Workload": "Consistent, Number of instances: 1",
+					"Advance EC2 instance": "t3.micro",
+					"Pricing strategy": "Compute Savings Plans 1yr  All Upfront",
+					"Enable monitoring": "disabled",
+					"EBS Storage amount": "20 GB",
+					"DT Inbound: Not selected": "0 TB per month",
+					"DT Outbound: Not selected": "0 TB per month",
+					"DT Intra-Region:": "0 TB per month"
+				}
+			}
+		]
+	}
+}
