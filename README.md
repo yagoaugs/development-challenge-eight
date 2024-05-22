@@ -6,3 +6,11 @@
 
 1. Run `npm install`
 2. Run `node server`
+
+## Pipeline Side
+
+Pull Request > Stage > Prod
+
+## Architecture Side
+
+Terraform > ECR > EC2 > Docker
